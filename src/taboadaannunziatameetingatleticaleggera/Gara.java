@@ -1,0 +1,49 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package taboadaannunziatameetingatleticaleggera;
+
+import java.util.ArrayList;
+
+/**
+ *
+ * @author taboada.taddeo
+ */
+public abstract class Gara {
+    // Attributi
+    protected ArrayList<Atleta> atleti;
+    protected String nome;
+
+    public Gara(String nome) {
+        this.atleti = new ArrayList<>();
+        this.nome = nome;
+    }
+    
+    public void aggiungiAtleta(Atleta a) {
+        for (Atleta atleta: atleti) {
+            if (a.equals(atleta) || a.getClass() != atleta.getClass())
+                return;
+        }
+        atleti.add(a);
+    }
+    
+    public void rimuoviAtleta(Atleta a) {
+        for (Atleta atleta: atleti) {
+            if (a.equals(atleta)) {
+                atleti.remove(a);
+                return;
+            }
+        }
+    }
+    
+    public abstract void gioca();
+    
+    public abstract String stampaRisultato();
+
+    public ArrayList<Atleta> getAtleti() {
+        return atleti;
+    }
+    
+    
+}
