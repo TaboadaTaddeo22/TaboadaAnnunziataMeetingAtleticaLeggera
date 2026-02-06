@@ -4,7 +4,7 @@
  */
 package taboadaannunziatameetingatleticaleggera;
 
-import java.util.Random;
+import java.util.*;
 
 /**
  *
@@ -23,8 +23,8 @@ public class CentoMetri extends Gara {
         for (Atleta a : atleti) {
             if (a instanceof Velocista v) {
                 v.setTempo(r.nextDouble(9.5, 11.5));
-                v.calcolaPunteggio();
-            } 
+                v.calcolaPunteggio();  
+            }         
         }
         
         stampaRisultato();
@@ -33,9 +33,7 @@ public class CentoMetri extends Gara {
     @Override
     public String stampaRisultato() {
         String risultato = "";
-        for (Atleta a : atleti) {
-            //
-        }
+        //atleti.sort(Comparator.comparingDouble(Velocista.getTempo()));
         return risultato;
     }
 }

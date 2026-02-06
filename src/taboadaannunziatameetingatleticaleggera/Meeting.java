@@ -14,10 +14,17 @@ public class Meeting {
     // Attributi
     private ArrayList<Gara> eventi;
 
+    /**
+     * 
+     */
     public Meeting() {
         this.eventi = new ArrayList<>();
     }
     
+    /**
+     * 
+     * @param g 
+     */
     public void aggiungiGara(Gara g) {
         for (Gara gara: eventi) {
             if (g.equals(gara))
@@ -26,6 +33,10 @@ public class Meeting {
         eventi.add(g);
     }
     
+    /**
+     * 
+     * @param g 
+     */
     public void rimuoviGara(Gara g) {
         for (Gara gara: eventi) {
             if (g.equals(gara)) {
@@ -35,6 +46,10 @@ public class Meeting {
         }
     }
 
+    /**
+     * 
+     * @return 
+     */
     public ArrayList<Gara> getEventi() {
         return eventi;
     }

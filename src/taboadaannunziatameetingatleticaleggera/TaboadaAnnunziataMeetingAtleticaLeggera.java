@@ -4,6 +4,8 @@
  */
 package taboadaannunziatameetingatleticaleggera;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author taboada.taddeo
@@ -16,6 +18,7 @@ public class TaboadaAnnunziataMeetingAtleticaLeggera {
     public static void main(String[] args) {
         FrameMeeting fM = new FrameMeeting();
         fM.setVisible(true);
+        fM.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
     
 }

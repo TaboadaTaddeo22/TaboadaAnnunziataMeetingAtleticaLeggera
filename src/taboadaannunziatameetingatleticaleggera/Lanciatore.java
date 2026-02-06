@@ -12,8 +12,8 @@ public class Lanciatore extends Atleta {
     // Attributi
     double distanza;
 
-    public Lanciatore(String nome, String nazionalita) {
-        super(nome, nazionalita);
+    public Lanciatore(String nome, String nazionalita, String numero) {
+        super(nome, nazionalita, numero);
         this.distanza = 0;
     }
     

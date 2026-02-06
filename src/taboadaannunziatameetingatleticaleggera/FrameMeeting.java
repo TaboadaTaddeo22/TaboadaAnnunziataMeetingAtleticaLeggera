@@ -18,6 +18,12 @@ public class FrameMeeting extends javax.swing.JFrame {
     public FrameMeeting() {
         initComponents();
     }
+    
+    public void apriFrameCompetizione() {
+        FrameCompetizione fC = new FrameCompetizione();
+        this.setVisible(false);
+        fC.setVisible(true);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,8 +35,23 @@ public class FrameMeeting extends javax.swing.JFrame {
     private void initComponents() {
 
         lblTitolo = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        lblCentoMetri = new javax.swing.JLabel();
+        lblCorsaOstacoli = new javax.swing.JLabel();
+        lblLancioGiavellotto = new javax.swing.JLabel();
+        lblLancioMartello = new javax.swing.JLabel();
+        lblImmagineCM = new javax.swing.JLabel();
+        lblImmagineCO = new javax.swing.JLabel();
+        lblImmagineLG = new javax.swing.JLabel();
+        lblImmagineLM = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        btnCentoMetri = new javax.swing.JButton();
+        btnCorsaOstacoli = new javax.swing.JButton();
+        btnLancioGiavellotto = new javax.swing.JButton();
+        btnLancioMartello = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Meeting Atletica Leggera");
         getContentPane().setLayout(new java.awt.BorderLayout(10, 10));
 
         lblTitolo.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -39,35 +60,99 @@ public class FrameMeeting extends javax.swing.JFrame {
         lblTitolo.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
         getContentPane().add(lblTitolo, java.awt.BorderLayout.PAGE_START);
 
+        jPanel1.setLayout(new java.awt.GridLayout(2, 4, 10, 10));
+
+        lblCentoMetri.setText("100 Metri");
+        jPanel1.add(lblCentoMetri);
+
+        lblCorsaOstacoli.setText("Corsa a Ostacoli");
+        jPanel1.add(lblCorsaOstacoli);
+
+        lblLancioGiavellotto.setText("Lancio del Giavellotto");
+        jPanel1.add(lblLancioGiavellotto);
+
+        lblLancioMartello.setText("Lancio del Martello");
+        jPanel1.add(lblLancioMartello);
+
+        lblImmagineCM.setAutoscrolls(true);
+        jPanel1.add(lblImmagineCM);
+        jPanel1.add(lblImmagineCO);
+        jPanel1.add(lblImmagineLG);
+        jPanel1.add(lblImmagineLM);
+
+        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
+
+        jPanel2.setLayout(new java.awt.GridLayout(1, 4, 10, 10));
+
+        btnCentoMetri.setText("Gioca 100 Metri");
+        btnCentoMetri.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCentoMetriActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnCentoMetri);
+
+        btnCorsaOstacoli.setText("Gioca Corsa a Ostacoli");
+        btnCorsaOstacoli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCorsaOstacoliActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnCorsaOstacoli);
+
+        btnLancioGiavellotto.setText("Gioca al lancio del giavellotto");
+        btnLancioGiavellotto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLancioGiavellottoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnLancioGiavellotto);
+
+        btnLancioMartello.setText("Gioca al lancio del martello");
+        btnLancioMartello.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLancioMartelloActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnLancioMartello);
+
+        getContentPane().add(jPanel2, java.awt.BorderLayout.PAGE_END);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void btnCentoMetriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCentoMetriActionPerformed
+        apriFrameCompetizione();
+    }//GEN-LAST:event_btnCentoMetriActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new FrameMeeting().setVisible(true));
-    }
+    private void btnCorsaOstacoliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCorsaOstacoliActionPerformed
+        apriFrameCompetizione();
+    }//GEN-LAST:event_btnCorsaOstacoliActionPerformed
+
+    private void btnLancioGiavellottoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLancioGiavellottoActionPerformed
+        apriFrameCompetizione();
+    }//GEN-LAST:event_btnLancioGiavellottoActionPerformed
+
+    private void btnLancioMartelloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLancioMartelloActionPerformed
+        apriFrameCompetizione();
+    }//GEN-LAST:event_btnLancioMartelloActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCentoMetri;
+    private javax.swing.JButton btnCorsaOstacoli;
+    private javax.swing.JButton btnLancioGiavellotto;
+    private javax.swing.JButton btnLancioMartello;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lblCentoMetri;
+    private javax.swing.JLabel lblCorsaOstacoli;
+    private javax.swing.JLabel lblImmagineCM;
+    private javax.swing.JLabel lblImmagineCO;
+    private javax.swing.JLabel lblImmagineLG;
+    private javax.swing.JLabel lblImmagineLM;
+    private javax.swing.JLabel lblLancioGiavellotto;
+    private javax.swing.JLabel lblLancioMartello;
     private javax.swing.JLabel lblTitolo;
     // End of variables declaration//GEN-END:variables
 }

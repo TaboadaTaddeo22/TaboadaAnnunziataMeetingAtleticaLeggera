@@ -4,6 +4,8 @@
  */
 package taboadaannunziatameetingatleticaleggera;
 
+import java.util.*;
+
 /**
  *
  * @author taboada.taddeo
@@ -16,11 +18,22 @@ public class CorsaOstacoli extends Gara {
     
     @Override
     public void gioca() {
+        Random r = new Random();
         
+        for (Atleta a : atleti) {
+            if (a instanceof Velocista v) {
+                v.setTempo(r.nextDouble(12.8, 14.0));
+                v.calcolaPunteggio();  
+            }         
+        }
+        
+        stampaRisultato();
     }
     
     @Override
     public String stampaRisultato() {
-        return "";
+        String risultato = "";
+        //atleti.sort(Comparator.comparingDouble(Velocista.getTempo()));
+        return risultato;
     }
 }

@@ -14,10 +14,12 @@ public abstract class Atleta {
     // Attributi
     protected String nome;
     protected String nazionalita;
+    protected String numero;
 
-    public Atleta(String nome, String nazionalita) {
+    public Atleta(String nome, String nazionalita, String numero) {
         this.nome = nome;
         this.nazionalita = nazionalita;
+          this.numero = numero;
     }
     
     public abstract double calcolaPunteggio();
@@ -30,6 +32,10 @@ public abstract class Atleta {
         return nazionalita;
     }
 
+    public String getNumero() {
+        return numero;
+    }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -38,6 +44,10 @@ public abstract class Atleta {
         this.nazionalita = nazionalita;
     }
 
+     public void setNumero(String numero) {
+        this.numero = numero;
+    }
+    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

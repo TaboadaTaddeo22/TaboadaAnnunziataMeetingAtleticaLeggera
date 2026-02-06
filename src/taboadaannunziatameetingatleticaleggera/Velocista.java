@@ -14,8 +14,8 @@ public class Velocista extends Atleta implements ITempoReazione {
     // Attributi
     private double tempo;
 
-    public Velocista(String nome, String nazionalita) {
-        super(nome, nazionalita);
+    public Velocista(String nome, String nazionalita, String numero) {
+        super(nome, nazionalita, numero);
         this.tempo = 0;
     }
 
