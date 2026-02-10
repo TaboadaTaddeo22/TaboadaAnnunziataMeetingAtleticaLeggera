@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package taboadaannunziatameetingatleticaleggera;
-
 import java.util.*;
 
 /**
@@ -27,13 +26,15 @@ public class CorsaOstacoli extends Gara {
             }         
         }
         
+        atleti.sort(
+        Comparator.comparingDouble(a -> ((Velocista) a).getTempo())
+        );
+        
         stampaRisultato();
     }
     
     @Override
     public String stampaRisultato() {
-        String risultato = "";
-        //atleti.sort(Comparator.comparingDouble(Velocista.getTempo()));
-        return risultato;
+        return "=== Ecco il risultato della gara di 110 metri a ostacoli === \n" + atleti.toString();
     }
 }

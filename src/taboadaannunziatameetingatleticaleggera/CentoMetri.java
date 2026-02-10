@@ -27,13 +27,15 @@ public class CentoMetri extends Gara {
             }         
         }
         
+        atleti.sort(
+        Comparator.comparingDouble(a -> ((Velocista) a).getTempo())
+        );
+        
         stampaRisultato();
     }
     
     @Override
     public String stampaRisultato() {
-        String risultato = "";
-        //atleti.sort(Comparator.comparingDouble(Velocista.getTempo()));
-        return risultato;
+        return "=== Ecco il risultato della gara di 100 metri piani === \n" + atleti.toString();
     }
 }

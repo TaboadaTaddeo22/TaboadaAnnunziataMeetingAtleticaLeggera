@@ -27,13 +27,15 @@ public class LancioGiavellotto extends Gara {
             }         
         }
         
+        atleti.sort(
+        Comparator.comparingDouble(a -> ((Lanciatore) a).getDistanza())
+        );
+        
         stampaRisultato();
     }
     
     @Override
     public String stampaRisultato() {
-        String risultato = "";
-        //atleti.sort(Comparator.comparingDouble(Velocista.getTempo()));
-        return risultato;
+        return "=== Ecco il risultato della gara di lancio del giavellotto === \n" + atleti.toString();
     }
 }

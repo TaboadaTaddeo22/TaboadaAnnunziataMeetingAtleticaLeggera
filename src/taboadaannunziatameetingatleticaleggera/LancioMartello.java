@@ -1,6 +1,9 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package taboadaannunziatameetingatleticaleggera;
 
@@ -27,13 +30,15 @@ public class LancioMartello extends Gara {
             }         
         }
         
+        atleti.sort(
+        Comparator.comparingDouble(a -> ((Lanciatore) a).getDistanza())
+        );
+        
         stampaRisultato();
     }
     
     @Override
     public String stampaRisultato() {
-        String risultato = "";
-        //atleti.sort(Comparator.comparingDouble(Velocista.getTempo()));
-        return risultato;
+        return "=== Ecco il risultato della gara di lancio del martello === \n" + atleti.toString();
     }
 }
