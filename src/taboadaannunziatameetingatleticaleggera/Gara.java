@@ -41,19 +41,24 @@ public abstract class Gara {
     
     public abstract String stampaRisultato();
 
+    public String getNome() {
+        return nome;
+    }
+
     public ArrayList<Atleta> getAtleti() {
         return atleti;
     }
 
     @Override
     public String toString() {
+        String concat = "";
         String risultato = "";
         int i = 1;
         for (Atleta a: atleti) {
-            risultato.concat(i + "° Posto " + a.toString() + "\n");
+            concat = risultato.concat(i + "° Posto " + a.toString() + "\n");
             i++;
         }
-        return risultato;
+        return concat;
     }
     
 }

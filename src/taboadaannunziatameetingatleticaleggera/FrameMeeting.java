@@ -11,6 +11,7 @@ package taboadaannunziatameetingatleticaleggera;
 public class FrameMeeting extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrameMeeting.class.getName());
+    private String scelta;
 
     /**
      * Creates new form FrameMeeting
@@ -20,7 +21,7 @@ public class FrameMeeting extends javax.swing.JFrame {
     }
     
     public void apriFrameCompetizione() {
-        FrameCompetizione fC = new FrameCompetizione();
+        FrameCompetizione fC = new FrameCompetizione(scelta);
         this.setVisible(false);
         fC.setVisible(true);
     }
@@ -60,17 +61,26 @@ public class FrameMeeting extends javax.swing.JFrame {
         lblTitolo.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
         getContentPane().add(lblTitolo, java.awt.BorderLayout.PAGE_START);
 
+        jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
         jPanel1.setLayout(new java.awt.GridLayout(2, 4, 10, 10));
 
+        lblCentoMetri.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        lblCentoMetri.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblCentoMetri.setText("100 Metri");
         jPanel1.add(lblCentoMetri);
 
+        lblCorsaOstacoli.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        lblCorsaOstacoli.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblCorsaOstacoli.setText("Corsa a Ostacoli");
         jPanel1.add(lblCorsaOstacoli);
 
+        lblLancioGiavellotto.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        lblLancioGiavellotto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblLancioGiavellotto.setText("Lancio del Giavellotto");
         jPanel1.add(lblLancioGiavellotto);
 
+        lblLancioMartello.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        lblLancioMartello.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblLancioMartello.setText("Lancio del Martello");
         jPanel1.add(lblLancioMartello);
 
@@ -82,6 +92,7 @@ public class FrameMeeting extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
+        jPanel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
         jPanel2.setLayout(new java.awt.GridLayout(1, 4, 10, 10));
 
         btnCentoMetri.setText("Gioca 100 Metri");
@@ -122,18 +133,22 @@ public class FrameMeeting extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCentoMetriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCentoMetriActionPerformed
+        scelta = "centoMetri";
         apriFrameCompetizione();
     }//GEN-LAST:event_btnCentoMetriActionPerformed
 
     private void btnCorsaOstacoliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCorsaOstacoliActionPerformed
+        scelta = "corsaOstacoli";
         apriFrameCompetizione();
     }//GEN-LAST:event_btnCorsaOstacoliActionPerformed
 
     private void btnLancioGiavellottoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLancioGiavellottoActionPerformed
+        scelta = "lancioGiavellotto";
         apriFrameCompetizione();
     }//GEN-LAST:event_btnLancioGiavellottoActionPerformed
 
     private void btnLancioMartelloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLancioMartelloActionPerformed
+        scelta = "lancioMartello";
         apriFrameCompetizione();
     }//GEN-LAST:event_btnLancioMartelloActionPerformed
 

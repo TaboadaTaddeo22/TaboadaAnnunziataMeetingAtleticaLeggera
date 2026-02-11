@@ -68,7 +68,7 @@ public abstract class Atleta {
 
     @Override
     public String toString() {
-        return "Atleta{" + "nome=" + nome + ", nazionalita=" + nazionalita + '}';
+        return nome + ", " + nazionalita + ", " + numero;
     }
 
 }

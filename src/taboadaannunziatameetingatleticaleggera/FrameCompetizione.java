@@ -11,12 +11,17 @@ package taboadaannunziatameetingatleticaleggera;
 public class FrameCompetizione extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrameCompetizione.class.getName());
-
+    private Gara g;
+    private String scelta = "";
+    
     /**
      * Creates new form FrameCompetizione
+     * @param scelta
      */
-    public FrameCompetizione() {
+    public FrameCompetizione(String scelta) {
         initComponents();
+        this.scelta = scelta;
+        trovaScelta();
     }
 
     /**
@@ -37,9 +42,10 @@ public class FrameCompetizione extends javax.swing.JFrame {
         lblNazionalita = new javax.swing.JLabel();
         btnConferma = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        atxGara = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        atxAtleti = new javax.swing.JTextArea();
+        btnGioca = new javax.swing.JButton();
         lblTitolo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -62,14 +68,19 @@ public class FrameCompetizione extends javax.swing.JFrame {
         lblNazionalita.setText("Nazionalità");
 
         btnConferma.setText("Conferma");
+        btnConferma.addActionListener(this::btnConfermaActionPerformed);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        atxGara.setColumns(20);
+        atxGara.setRows(5);
+        jScrollPane1.setViewportView(atxGara);
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
+        atxAtleti.setColumns(20);
+        atxAtleti.setRows(5);
+        jScrollPane2.setViewportView(atxAtleti);
+
+        btnGioca.setText("Gioca");
+        btnGioca.setEnabled(false);
+        btnGioca.addActionListener(this::btnGiocaActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -92,19 +103,22 @@ public class FrameCompetizione extends javax.swing.JFrame {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnConferma, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
+                    .addComponent(btnGioca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGioca))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtNazionalita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblNazionalita))
@@ -115,8 +129,8 @@ public class FrameCompetizione extends javax.swing.JFrame {
                         .addGap(21, 21, 21)
                         .addComponent(btnConferma)
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1))
                 .addGap(17, 17, 17))
         );
 
@@ -131,13 +145,57 @@ public class FrameCompetizione extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void trovaScelta() {
+        switch (scelta) {
+            case "CentoMetri":
+                g = new CentoMetri("100 metri piani");
+                break;
+            case "CorsaOstacoli":
+                g = new CorsaOstacoli("110 metri ad ostacoli");
+                break;
+            case "LancioGiavellotto":
+                g = new LancioGiavellotto("Lancio del Giavellotto");
+                break;
+            case "LancioMartello":
+                g = new LancioMartello("Lancio del Martello");
+                break;
+            default:
+                break;
+        }
+        lblTitolo.setText(g.getNome());
+    }
+    
+    private void btnConfermaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfermaActionPerformed
+        String nome = txtNome.getText();
+        String nazionalita = txtNazionalita.getText();
+        String numero = txtNumero.getText();
+        
+        if (scelta.equals("CentoMetri") || scelta.equals("CorsaOstacoli")) {
+            Velocista v = new Velocista(nome, nazionalita, numero);
+            g.getAtleti().add(v);
+            atxAtleti.append(v.toString() + "\n");
+        } else if (scelta.equals("LancioGiavellotto") || scelta.equals("LancioMartello")) {
+            Lanciatore l = new Lanciatore(nome, nazionalita, numero);
+            g.getAtleti().add(l);
+            atxAtleti.append(l.toString() + "\n");
+        }
+        
+        btnGioca.setEnabled(true);
+    }//GEN-LAST:event_btnConfermaActionPerformed
+
+    private void btnGiocaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGiocaActionPerformed
+        g.gioca();
+        atxGara.setText(g.stampaRisultato());
+    }//GEN-LAST:event_btnGiocaActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea atxAtleti;
+    private javax.swing.JTextArea atxGara;
     private javax.swing.JButton btnConferma;
+    private javax.swing.JButton btnGioca;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JLabel lblNazionalita;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblNumero;

@@ -40,7 +40,7 @@ public class Velocista extends Atleta implements ITempoReazione {
 
     @Override
     public String toString() {
-        return super.toString() + "Velocista{" + "tempo=" + tempo + '}';
+        return super.toString() + " Tempo impiegato " + tempo;
     }
     
 }
