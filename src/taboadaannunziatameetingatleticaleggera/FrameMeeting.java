@@ -4,6 +4,9 @@
  */
 package taboadaannunziatameetingatleticaleggera;
 
+import javax.swing.ImageIcon;
+import java.awt.Image;
+
 /**
  *
  * @author taboada.taddeo
@@ -18,6 +21,7 @@ public class FrameMeeting extends javax.swing.JFrame {
      */
     public FrameMeeting() {
         initComponents();
+        caricaImmagini();
     }
     
     public void apriFrameCompetizione() {
@@ -25,7 +29,32 @@ public class FrameMeeting extends javax.swing.JFrame {
         this.setVisible(false);
         fC.setVisible(true);
     }
-
+    
+     private void caricaImmagini() {
+        // Immagine 100 Metri
+        ImageIcon icon100M = new ImageIcon("img/100metri.png");
+        Image img100M = icon100M.getImage().getScaledInstance(400, 400, Image.SCALE_SMOOTH);
+        lblImmagineCM.setIcon(new ImageIcon(img100M));
+        lblImmagineCM.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        
+        // Immagine Corsa a Ostacoli
+        ImageIcon iconCO = new ImageIcon("img/corsaostacoli.png");
+        Image imgCO = iconCO.getImage().getScaledInstance(400, 400, Image.SCALE_SMOOTH);
+        lblImmagineCO.setIcon(new ImageIcon(imgCO));
+        lblImmagineCO.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        
+        // Immagine Lancio Giavellotto
+        ImageIcon iconLG = new ImageIcon("img/giavellotto.png");
+        Image imgLG = iconLG.getImage().getScaledInstance(400, 400, Image.SCALE_SMOOTH);
+        lblImmagineLG.setIcon(new ImageIcon(imgLG));
+        lblImmagineLG.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        
+        // Immagine Lancio Martello
+        ImageIcon iconLM = new ImageIcon("img/martello.png");
+        Image imgLM = iconLM.getImage().getScaledInstance(400, 400, Image.SCALE_SMOOTH);
+        lblImmagineLM.setIcon(new ImageIcon(imgLM));
+        lblImmagineLM.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -55,7 +84,7 @@ public class FrameMeeting extends javax.swing.JFrame {
         setTitle("Meeting Atletica Leggera");
         getContentPane().setLayout(new java.awt.BorderLayout(10, 10));
 
-        lblTitolo.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        lblTitolo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblTitolo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitolo.setText("Meeting Atletica Leggera");
         lblTitolo.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -133,22 +162,22 @@ public class FrameMeeting extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCentoMetriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCentoMetriActionPerformed
-        scelta = "centoMetri";
+        scelta = "CentoMetri";
         apriFrameCompetizione();
     }//GEN-LAST:event_btnCentoMetriActionPerformed
 
     private void btnCorsaOstacoliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCorsaOstacoliActionPerformed
-        scelta = "corsaOstacoli";
+        scelta = "CorsaOstacoli";
         apriFrameCompetizione();
     }//GEN-LAST:event_btnCorsaOstacoliActionPerformed
 
     private void btnLancioGiavellottoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLancioGiavellottoActionPerformed
-        scelta = "lancioGiavellotto";
+        scelta = "LancioGiavellotto";
         apriFrameCompetizione();
     }//GEN-LAST:event_btnLancioGiavellottoActionPerformed
 
     private void btnLancioMartelloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLancioMartelloActionPerformed
-        scelta = "lancioMartello";
+        scelta = "LancioMartello";
         apriFrameCompetizione();
     }//GEN-LAST:event_btnLancioMartelloActionPerformed
 

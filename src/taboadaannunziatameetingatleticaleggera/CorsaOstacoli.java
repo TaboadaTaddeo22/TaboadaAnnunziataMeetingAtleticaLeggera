@@ -35,6 +35,6 @@ public class CorsaOstacoli extends Gara {
     
     @Override
     public String stampaRisultato() {
-        return "=== Ecco il risultato della gara di 110 metri a ostacoli === \n" + atleti.toString();
+        return "=== Ecco il risultato della gara di 110 metri a ostacoli === \n" + this.toString();
     }
 }

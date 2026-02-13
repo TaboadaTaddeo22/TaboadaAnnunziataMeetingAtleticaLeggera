@@ -39,6 +39,6 @@ public class LancioMartello extends Gara {
     
     @Override
     public String stampaRisultato() {
-        return "=== Ecco il risultato della gara di lancio del martello === \n" + atleti.toString();
+        return "=== Ecco il risultato della gara di lancio del martello === \n" + this.toString();
     }
 }

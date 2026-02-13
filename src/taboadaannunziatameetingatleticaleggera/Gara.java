@@ -14,10 +14,12 @@ public abstract class Gara {
     // Attributi
     protected ArrayList<Atleta> atleti;
     protected String nome;
+    protected StringBuilder risultato;
 
     public Gara(String nome) {
         this.atleti = new ArrayList<>();
         this.nome = nome;
+        this.risultato = new StringBuilder();
     }
     
     public void aggiungiAtleta(Atleta a) {
@@ -49,16 +51,13 @@ public abstract class Gara {
         return atleti;
     }
 
-    @Override
-    public String toString() {
-        String concat = "";
-        String risultato = "";
+    public StringBuilder stampaGara() {
         int i = 1;
         for (Atleta a: atleti) {
-            concat = risultato.concat(i + "° Posto " + a.toString() + "\n");
+            risultato.append(i + "° Posto " + a.toString() + "\n");
             i++;
         }
-        return concat;
+        return risultato;
     }
     
 }

@@ -4,6 +4,8 @@
  */
 package taboadaannunziatameetingatleticaleggera;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author utente
@@ -24,6 +26,13 @@ public class FrameCompetizione extends javax.swing.JFrame {
         trovaScelta();
     }
 
+    public void apriFrameMeeting() {
+        FrameMeeting fM = new FrameMeeting();
+        this.setVisible(false);
+        fM.setVisible(true);
+        fM.setExtendedState(JFrame.MAXIMIZED_BOTH);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -46,23 +55,20 @@ public class FrameCompetizione extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         atxAtleti = new javax.swing.JTextArea();
         btnGioca = new javax.swing.JButton();
+        pnlTitolo = new javax.swing.JPanel();
         lblTitolo = new javax.swing.JLabel();
+        btnMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Competizione Atletica Leggera");
+        getContentPane().setLayout(new java.awt.BorderLayout());
 
         lblNumero.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblNumero.setText("Numero");
 
-        txtNumero.setText("jTextField1");
-
         lblNome.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblNome.setText("Nome");
         lblNome.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-
-        txtNazionalita.setText("jTextField1");
-
-        txtNome.setText("jTextField2");
 
         lblNazionalita.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblNazionalita.setText("Nazionalità");
@@ -71,11 +77,15 @@ public class FrameCompetizione extends javax.swing.JFrame {
         btnConferma.addActionListener(this::btnConfermaActionPerformed);
 
         atxGara.setColumns(20);
+        atxGara.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         atxGara.setRows(5);
+        atxGara.setEnabled(false);
         jScrollPane1.setViewportView(atxGara);
 
         atxAtleti.setColumns(20);
+        atxAtleti.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         atxAtleti.setRows(5);
+        atxAtleti.setEnabled(false);
         jScrollPane2.setViewportView(atxAtleti);
 
         btnGioca.setText("Gioca");
@@ -129,7 +139,7 @@ public class FrameCompetizione extends javax.swing.JFrame {
                         .addGap(21, 21, 21)
                         .addComponent(btnConferma)
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE))
                     .addComponent(jScrollPane1))
                 .addGap(17, 17, 17))
         );
@@ -140,7 +150,33 @@ public class FrameCompetizione extends javax.swing.JFrame {
         lblTitolo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitolo.setText("Competizione");
         lblTitolo.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        getContentPane().add(lblTitolo, java.awt.BorderLayout.PAGE_START);
+
+        btnMenu.setText("Menu");
+        btnMenu.setPreferredSize(new java.awt.Dimension(75, 75));
+        btnMenu.addActionListener(this::btnMenuActionPerformed);
+
+        javax.swing.GroupLayout pnlTitoloLayout = new javax.swing.GroupLayout(pnlTitolo);
+        pnlTitolo.setLayout(pnlTitoloLayout);
+        pnlTitoloLayout.setHorizontalGroup(
+            pnlTitoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTitoloLayout.createSequentialGroup()
+                .addContainerGap(104, Short.MAX_VALUE)
+                .addComponent(lblTitolo, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
+        );
+        pnlTitoloLayout.setVerticalGroup(
+            pnlTitoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTitoloLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlTitoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTitolo, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(pnlTitolo, java.awt.BorderLayout.PAGE_START);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -188,11 +224,16 @@ public class FrameCompetizione extends javax.swing.JFrame {
         atxGara.setText(g.stampaRisultato());
     }//GEN-LAST:event_btnGiocaActionPerformed
 
+    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
+        apriFrameMeeting();
+    }//GEN-LAST:event_btnMenuActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea atxAtleti;
     private javax.swing.JTextArea atxGara;
     private javax.swing.JButton btnConferma;
     private javax.swing.JButton btnGioca;
+    private javax.swing.JButton btnMenu;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -200,6 +241,7 @@ public class FrameCompetizione extends javax.swing.JFrame {
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblNumero;
     private javax.swing.JLabel lblTitolo;
+    private javax.swing.JPanel pnlTitolo;
     private javax.swing.JTextField txtNazionalita;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtNumero;

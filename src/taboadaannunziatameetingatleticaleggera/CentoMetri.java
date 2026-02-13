@@ -36,6 +36,6 @@ public class CentoMetri extends Gara {
     
     @Override
     public String stampaRisultato() {
-        return "=== Ecco il risultato della gara di 100 metri piani === \n" + atleti.toString();
+        return "=== Ecco il risultato della gara di 100 metri piani === \n" + this.stampaGara();
     }
 }
