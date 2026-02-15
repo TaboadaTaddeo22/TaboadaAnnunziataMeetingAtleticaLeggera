@@ -26,8 +26,8 @@ public class LancioMartello extends Gara {
         for (Atleta a : atleti) {
             if (a instanceof Lanciatore l) {
                 l.setDistanza(r.nextDouble(72.0, 84.0));
-                l.calcolaPunteggio();  
-            }         
+                l.setDistanza(l.calcolaPunteggio());
+            }    
         }
         
         atleti.sort(

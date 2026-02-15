@@ -14,12 +14,10 @@ public abstract class Gara {
     // Attributi
     protected ArrayList<Atleta> atleti;
     protected String nome;
-    protected StringBuilder risultato;
 
     public Gara(String nome) {
         this.atleti = new ArrayList<>();
         this.nome = nome;
-        this.risultato = new StringBuilder();
     }
     
     public void aggiungiAtleta(Atleta a) {
@@ -52,6 +50,7 @@ public abstract class Gara {
     }
 
     public StringBuilder stampaGara() {
+        StringBuilder risultato = new StringBuilder();
         int i = 1;
         for (Atleta a: atleti) {
             risultato.append(i + "° Posto " + a.toString() + "\n");

@@ -19,7 +19,7 @@ public class Lanciatore extends Atleta {
     
     @Override
     public double calcolaPunteggio() {
-        return distanza;
+        return Math.round(distanza * 100) / 100.0;
     }
 
     public double getDistanza() {

@@ -21,7 +21,7 @@ public class Velocista extends Atleta implements ITempoReazione {
 
     @Override
     public double calcolaPunteggio() {
-        return tempo + tempoReazione();
+        return Math.round((tempo + tempoReazione()) * 100) / 100.0;
     }
     
     @Override
@@ -40,7 +40,7 @@ public class Velocista extends Atleta implements ITempoReazione {
 
     @Override
     public String toString() {
-        return super.toString() + " Tempo impiegato " + tempo;
+        return super.toString() + ", Tempo impiegato " + tempo + " s";
     }
     
 }

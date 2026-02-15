@@ -22,7 +22,7 @@ public class CorsaOstacoli extends Gara {
         for (Atleta a : atleti) {
             if (a instanceof Velocista v) {
                 v.setTempo(r.nextDouble(12.8, 14.0));
-                v.calcolaPunteggio();  
+                v.setTempo(v.calcolaPunteggio());
             }         
         }
         

@@ -23,7 +23,7 @@ public class LancioGiavellotto extends Gara {
         for (Atleta a : atleti) {
             if (a instanceof Lanciatore l) {
                 l.setDistanza(r.nextDouble(80.0, 95.0));
-                l.calcolaPunteggio();  
+                l.setDistanza(l.calcolaPunteggio());
             }         
         }
         

@@ -23,7 +23,7 @@ public class CentoMetri extends Gara {
         for (Atleta a : atleti) {
             if (a instanceof Velocista v) {
                 v.setTempo(r.nextDouble(9.5, 11.5));
-                v.calcolaPunteggio();  
+                v.setTempo(v.calcolaPunteggio());
             }         
         }
         

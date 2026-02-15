@@ -27,6 +27,7 @@ public class FrameMeeting extends javax.swing.JFrame {
     public void apriFrameCompetizione() {
         FrameCompetizione fC = new FrameCompetizione(scelta);
         this.setVisible(false);
+        fC.setLocation(this.getWidth() / 2 - fC.getWidth() / 2, this.getHeight() / 2 - fC.getHeight() / 2);
         fC.setVisible(true);
     }
     
