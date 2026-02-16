@@ -14,6 +14,7 @@ public class FrameCompetizione extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrameCompetizione.class.getName());
     private Gara g;
+    private Meeting m;
     private String scelta = "";
     
     /**
@@ -23,6 +24,7 @@ public class FrameCompetizione extends javax.swing.JFrame {
     public FrameCompetizione(String scelta) {
         initComponents();
         this.scelta = scelta;
+        this.m = new Meeting();
         trovaScelta();
     }
 
@@ -198,7 +200,12 @@ public class FrameCompetizione extends javax.swing.JFrame {
             default:
                 break;
         }
+        m.aggiungiGara(g);
         lblTitolo.setText(g.getNome());
+    }
+
+    public Meeting getM() {
+        return m;
     }
     
     private void btnConfermaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfermaActionPerformed

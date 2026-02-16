@@ -19,7 +19,7 @@ public abstract class Atleta {
     public Atleta(String nome, String nazionalita, String numero) {
         this.nome = nome;
         this.nazionalita = nazionalita;
-          this.numero = numero;
+        this.numero = numero;
     }
     
     public abstract double calcolaPunteggio();

@@ -32,7 +32,7 @@ public class Lanciatore extends Atleta {
 
     @Override
     public String toString() {
-        return super.toString() + "Lanciatore{" + "distanza=" + distanza + '}';
+        return super.toString() + ", Distanza raggiunta " + distanza + " m";
     }
 
 }

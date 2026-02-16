@@ -36,6 +36,6 @@ public class LancioGiavellotto extends Gara {
     
     @Override
     public String stampaRisultato() {
-        return "=== Ecco il risultato della gara di lancio del giavellotto === \n" + this.toString();
+        return "=== Ecco il risultato della gara di lancio del giavellotto === \n" + this.stampaGara();
     }
 }

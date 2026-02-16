@@ -15,6 +15,7 @@ public class FrameMeeting extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrameMeeting.class.getName());
     private String scelta;
+    private Meeting m;
 
     /**
      * Creates new form FrameMeeting
@@ -26,9 +27,11 @@ public class FrameMeeting extends javax.swing.JFrame {
     
     public void apriFrameCompetizione() {
         FrameCompetizione fC = new FrameCompetizione(scelta);
+        btnRisultati.setEnabled(true);
         this.setVisible(false);
         fC.setLocation(this.getWidth() / 2 - fC.getWidth() / 2, this.getHeight() / 2 - fC.getHeight() / 2);
         fC.setVisible(true);
+        m = fC.getM();
     }
     
      private void caricaImmagini() {
@@ -65,7 +68,9 @@ public class FrameMeeting extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel3 = new javax.swing.JPanel();
         lblTitolo = new javax.swing.JLabel();
+        btnRisultati = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         lblCentoMetri = new javax.swing.JLabel();
         lblCorsaOstacoli = new javax.swing.JLabel();
@@ -89,7 +94,38 @@ public class FrameMeeting extends javax.swing.JFrame {
         lblTitolo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitolo.setText("Meeting Atletica Leggera");
         lblTitolo.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        getContentPane().add(lblTitolo, java.awt.BorderLayout.PAGE_START);
+
+        btnRisultati.setText("Risultati");
+        btnRisultati.setEnabled(false);
+        btnRisultati.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRisultatiActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(246, 246, 246)
+                .addComponent(lblTitolo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addComponent(btnRisultati, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblTitolo)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(btnRisultati, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
+        );
+
+        getContentPane().add(jPanel3, java.awt.BorderLayout.PAGE_START);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
         jPanel1.setLayout(new java.awt.GridLayout(2, 4, 10, 10));
@@ -182,14 +218,22 @@ public class FrameMeeting extends javax.swing.JFrame {
         apriFrameCompetizione();
     }//GEN-LAST:event_btnLancioMartelloActionPerformed
 
+    private void btnRisultatiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRisultatiActionPerformed
+        Risultati r = new Risultati(this, true);
+        r.setLocation(this.getWidth() / 2 - r.getWidth() / 2, this.getHeight() / 2 - r.getHeight() / 2);
+        r.stampaRisultati(m);
+        r.setVisible(true);
+    }//GEN-LAST:event_btnRisultatiActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCentoMetri;
     private javax.swing.JButton btnCorsaOstacoli;
     private javax.swing.JButton btnLancioGiavellotto;
     private javax.swing.JButton btnLancioMartello;
+    private javax.swing.JButton btnRisultati;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblCentoMetri;
     private javax.swing.JLabel lblCorsaOstacoli;
     private javax.swing.JLabel lblImmagineCM;
