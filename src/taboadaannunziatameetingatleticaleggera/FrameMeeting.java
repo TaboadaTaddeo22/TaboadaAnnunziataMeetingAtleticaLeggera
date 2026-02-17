@@ -16,22 +16,22 @@ public class FrameMeeting extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrameMeeting.class.getName());
     private String scelta;
-    private Meeting m = new Meeting();
+    private Meeting m;
 
     /**
      * Creates new form FrameMeeting
      */
-    public FrameMeeting() {
+    public FrameMeeting(Meeting m) {
         initComponents();
         caricaImmagini();
+        this.m = m;
     }
     
     public void apriFrameCompetizione() {
-        FrameCompetizione fC = new FrameCompetizione(scelta);
+        FrameCompetizione fC = new FrameCompetizione(this, m, scelta);
         this.setVisible(false);
-        fC.setLocation(this.getWidth() / 2 - fC.getWidth() / 2, this.getHeight() / 2 - fC.getHeight() / 2);
+        fC.setLocationRelativeTo(null);
         fC.setVisible(true);
-        m = fC.getM();
     }
     
      private void caricaImmagini() {
@@ -76,6 +76,7 @@ public class FrameMeeting extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel3 = new javax.swing.JPanel();
         lblTitolo = new javax.swing.JLabel();
@@ -118,8 +119,8 @@ public class FrameMeeting extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(246, 246, 246)
-                .addComponent(lblTitolo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addComponent(lblTitolo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(58, 58, 58)
                 .addComponent(btnRisultati, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -137,33 +138,89 @@ public class FrameMeeting extends javax.swing.JFrame {
         getContentPane().add(jPanel3, java.awt.BorderLayout.PAGE_START);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        jPanel1.setLayout(new java.awt.GridLayout(2, 4, 10, 10));
+        jPanel1.setLayout(new java.awt.GridBagLayout());
 
         lblCentoMetri.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         lblCentoMetri.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblCentoMetri.setText("100 Metri");
-        jPanel1.add(lblCentoMetri);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 5;
+        gridBagConstraints.ipady = 5;
+        gridBagConstraints.insets = new java.awt.Insets(1, 6, 1, 6);
+        jPanel1.add(lblCentoMetri, gridBagConstraints);
 
         lblCorsaOstacoli.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         lblCorsaOstacoli.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblCorsaOstacoli.setText("Corsa a Ostacoli");
-        jPanel1.add(lblCorsaOstacoli);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 5;
+        gridBagConstraints.ipady = 5;
+        gridBagConstraints.insets = new java.awt.Insets(1, 6, 1, 6);
+        jPanel1.add(lblCorsaOstacoli, gridBagConstraints);
 
         lblLancioGiavellotto.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         lblLancioGiavellotto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblLancioGiavellotto.setText("Lancio del Giavellotto");
-        jPanel1.add(lblLancioGiavellotto);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 5;
+        gridBagConstraints.ipady = 5;
+        gridBagConstraints.insets = new java.awt.Insets(1, 6, 1, 6);
+        jPanel1.add(lblLancioGiavellotto, gridBagConstraints);
 
         lblLancioMartello.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         lblLancioMartello.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblLancioMartello.setText("Lancio del Martello");
-        jPanel1.add(lblLancioMartello);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 5;
+        gridBagConstraints.ipady = 5;
+        gridBagConstraints.insets = new java.awt.Insets(1, 6, 1, 6);
+        jPanel1.add(lblLancioMartello, gridBagConstraints);
 
         lblImmagineCM.setAutoscrolls(true);
-        jPanel1.add(lblImmagineCM);
-        jPanel1.add(lblImmagineCO);
-        jPanel1.add(lblImmagineLG);
-        jPanel1.add(lblImmagineLM);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 5;
+        gridBagConstraints.ipady = 5;
+        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(1, 6, 1, 6);
+        jPanel1.add(lblImmagineCM, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 5;
+        gridBagConstraints.ipady = 5;
+        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(1, 6, 1, 6);
+        jPanel1.add(lblImmagineCO, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 5;
+        gridBagConstraints.ipady = 5;
+        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(1, 6, 1, 6);
+        jPanel1.add(lblImmagineLG, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 5;
+        gridBagConstraints.ipady = 5;
+        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(1, 6, 1, 6);
+        jPanel1.add(lblImmagineLM, gridBagConstraints);
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -229,7 +286,8 @@ public class FrameMeeting extends javax.swing.JFrame {
 
     private void btnRisultatiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRisultatiActionPerformed
         Risultati r = new Risultati(this, true);
-        r.setLocation(this.getWidth() / 2 - r.getWidth() / 2, this.getHeight() / 2 - r.getHeight() / 2);
+        r.setBounds(0, 0, this.getWidth() / 2, this.getHeight() / 2);
+        r.setLocationRelativeTo(null);
         r.stampaRisultati(m);
         r.setVisible(true);
     }//GEN-LAST:event_btnRisultatiActionPerformed

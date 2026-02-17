@@ -48,7 +48,10 @@ public class Risultati extends javax.swing.JDialog {
         getContentPane().add(btnOk, java.awt.BorderLayout.PAGE_END);
 
         atxRisultati.setColumns(20);
+        atxRisultati.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         atxRisultati.setRows(5);
+        atxRisultati.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        atxRisultati.setEnabled(false);
         jScrollPane1.setViewportView(atxRisultati);
 
         getContentPane().add(jScrollPane1, java.awt.BorderLayout.CENTER);
@@ -58,9 +61,9 @@ public class Risultati extends javax.swing.JDialog {
 
     public void stampaRisultati(Meeting m) {
         atxRisultati.setText("");
-        atxRisultati.append("=== Ecco i risultati delle gare ===");
+        atxRisultati.append("=== Ecco i risultati delle gare === \n");
         for (Gara g : m.getEventi()) {
-            g.stampaRisultato();
+            atxRisultati.append("\n" + g.stampaRisultato());
         }
     }
     

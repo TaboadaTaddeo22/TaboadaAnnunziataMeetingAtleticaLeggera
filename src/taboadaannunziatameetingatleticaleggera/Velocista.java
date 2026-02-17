@@ -37,6 +37,10 @@ public class Velocista extends Atleta implements ITempoReazione {
     public void setTempo(double tempo) {
         this.tempo = tempo;
     }
+    
+    public String atletaToString() {
+        return super.toString();
+    }
 
     @Override
     public String toString() {

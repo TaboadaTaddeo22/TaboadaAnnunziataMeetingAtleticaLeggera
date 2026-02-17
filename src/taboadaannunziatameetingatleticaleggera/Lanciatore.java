@@ -30,6 +30,10 @@ public class Lanciatore extends Atleta {
         this.distanza = distanza;
     }
 
+    public String atletaToString() {
+        return super.toString();
+    }
+    
     @Override
     public String toString() {
         return super.toString() + ", Distanza raggiunta " + distanza + " m";

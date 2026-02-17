@@ -14,6 +14,7 @@ public class FrameCompetizione extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrameCompetizione.class.getName());
     private Gara g;
+    private FrameMeeting frameMeeting;
     private Meeting m;
     private String scelta = "";
     
@@ -21,20 +22,18 @@ public class FrameCompetizione extends javax.swing.JFrame {
      * Creates new form FrameCompetizione
      * @param scelta
      */
-    public FrameCompetizione(String scelta) {
+    public FrameCompetizione(FrameMeeting frameMeeting, Meeting m, String scelta) {
         initComponents();
+        this.frameMeeting = frameMeeting;
+        this.m = m;
         this.scelta = scelta;
-        this.m = new Meeting();
         trovaScelta();
     }
 
     public void apriFrameMeeting() {
-        FrameMeeting fM = new FrameMeeting();
         this.setVisible(false);
-        fM.setVisible(true);
-        fM.getBtnRisultati().setEnabled(true);
-        fM.setM(m);
-        fM.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        frameMeeting.setVisible(true);
+        frameMeeting.getBtnRisultati().setEnabled(true);
     }
     
     /**
@@ -218,17 +217,18 @@ public class FrameCompetizione extends javax.swing.JFrame {
         if (scelta.equals("CentoMetri") || scelta.equals("CorsaOstacoli")) {
             Velocista v = new Velocista(nome, nazionalita, numero);
             g.getAtleti().add(v);
-            atxAtleti.append(v.toString() + "\n");
+            atxAtleti.append(v.atletaToString() + "\n");
         } else if (scelta.equals("LancioGiavellotto") || scelta.equals("LancioMartello")) {
             Lanciatore l = new Lanciatore(nome, nazionalita, numero);
             g.getAtleti().add(l);
-            atxAtleti.append(l.toString() + "\n");
+            atxAtleti.append(l.atletaToString() + "\n");
         }
         
         btnGioca.setEnabled(true);
     }//GEN-LAST:event_btnConfermaActionPerformed
 
     private void btnGiocaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGiocaActionPerformed
+        btnGioca.setEnabled(false);
         g.gioca();
         atxGara.setText(g.stampaRisultato());
     }//GEN-LAST:event_btnGiocaActionPerformed

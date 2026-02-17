@@ -16,7 +16,8 @@ public class TaboadaAnnunziataMeetingAtleticaLeggera {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        FrameMeeting fM = new FrameMeeting();
+        Meeting m = new Meeting();
+        FrameMeeting fM = new FrameMeeting(m);
         fM.setVisible(true);
         fM.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
