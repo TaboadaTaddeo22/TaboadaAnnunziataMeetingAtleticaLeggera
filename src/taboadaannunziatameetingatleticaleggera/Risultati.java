@@ -14,6 +14,8 @@ public class Risultati extends javax.swing.JDialog {
 
     /**
      * Creates new form Risultati
+     * @param parent
+     * @param modal
      */
     public Risultati(java.awt.Frame parent, boolean modal) {
         super(parent, modal);

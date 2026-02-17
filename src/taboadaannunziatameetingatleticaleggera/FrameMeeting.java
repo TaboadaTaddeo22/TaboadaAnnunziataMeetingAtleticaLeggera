@@ -6,6 +6,7 @@ package taboadaannunziatameetingatleticaleggera;
 
 import javax.swing.ImageIcon;
 import java.awt.Image;
+import javax.swing.JButton;
 
 /**
  *
@@ -15,7 +16,7 @@ public class FrameMeeting extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrameMeeting.class.getName());
     private String scelta;
-    private Meeting m;
+    private Meeting m = new Meeting();
 
     /**
      * Creates new form FrameMeeting
@@ -27,7 +28,6 @@ public class FrameMeeting extends javax.swing.JFrame {
     
     public void apriFrameCompetizione() {
         FrameCompetizione fC = new FrameCompetizione(scelta);
-        btnRisultati.setEnabled(true);
         this.setVisible(false);
         fC.setLocation(this.getWidth() / 2 - fC.getWidth() / 2, this.getHeight() / 2 - fC.getHeight() / 2);
         fC.setVisible(true);
@@ -59,6 +59,15 @@ public class FrameMeeting extends javax.swing.JFrame {
         lblImmagineLM.setIcon(new ImageIcon(imgLM));
         lblImmagineLM.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
     }
+
+    public JButton getBtnRisultati() {
+        return btnRisultati;
+    }
+
+    public void setM(Meeting m) {
+        this.m = m;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

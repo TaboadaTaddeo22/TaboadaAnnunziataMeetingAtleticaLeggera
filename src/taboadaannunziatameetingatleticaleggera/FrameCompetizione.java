@@ -32,6 +32,8 @@ public class FrameCompetizione extends javax.swing.JFrame {
         FrameMeeting fM = new FrameMeeting();
         this.setVisible(false);
         fM.setVisible(true);
+        fM.getBtnRisultati().setEnabled(true);
+        fM.setM(m);
         fM.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
     
