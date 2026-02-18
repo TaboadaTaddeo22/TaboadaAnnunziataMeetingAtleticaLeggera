@@ -31,10 +31,8 @@ public class LancioMartello extends Gara {
         }
         
         atleti.sort(
-        Comparator.comparingDouble(a -> ((Lanciatore) a).getDistanza())
+        Comparator.comparingDouble(a -> ((Lanciatore) a).getDistanza()).reversed()
         );
-        
-        stampaRisultato();
     }
     
     @Override

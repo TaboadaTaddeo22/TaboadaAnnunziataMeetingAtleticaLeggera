@@ -29,8 +29,6 @@ public class CorsaOstacoli extends Gara {
         atleti.sort(
         Comparator.comparingDouble(a -> ((Velocista) a).getTempo())
         );
-        
-        stampaRisultato();
     }
     
     @Override

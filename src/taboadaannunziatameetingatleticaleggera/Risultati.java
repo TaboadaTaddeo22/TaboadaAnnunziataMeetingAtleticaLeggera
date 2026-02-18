@@ -37,6 +37,7 @@ public class Risultati extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Risultati delle Gare");
+        setBackground(new java.awt.Color(0, 204, 204));
 
         btnOk.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnOk.setText("OK");
@@ -50,7 +51,7 @@ public class Risultati extends javax.swing.JDialog {
         atxRisultati.setColumns(20);
         atxRisultati.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         atxRisultati.setRows(5);
-        atxRisultati.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        atxRisultati.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         atxRisultati.setEnabled(false);
         jScrollPane1.setViewportView(atxRisultati);
 

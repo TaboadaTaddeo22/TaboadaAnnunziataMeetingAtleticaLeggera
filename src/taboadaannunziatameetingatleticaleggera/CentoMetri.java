@@ -30,8 +30,6 @@ public class CentoMetri extends Gara {
         atleti.sort(
         Comparator.comparingDouble(a -> ((Velocista) a).getTempo())
         );
-        
-        stampaRisultato();
     }
     
     @Override

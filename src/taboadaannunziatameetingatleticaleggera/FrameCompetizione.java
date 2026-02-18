@@ -58,13 +58,16 @@ public class FrameCompetizione extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         atxAtleti = new javax.swing.JTextArea();
         btnGioca = new javax.swing.JButton();
+        btnRimuovi = new javax.swing.JButton();
+        cmbAtleti = new javax.swing.JComboBox<>();
         pnlTitolo = new javax.swing.JPanel();
         lblTitolo = new javax.swing.JLabel();
         btnMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Competizione Atletica Leggera");
-        getContentPane().setLayout(new java.awt.BorderLayout());
+
+        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
 
         lblNumero.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblNumero.setText("Numero");
@@ -95,6 +98,11 @@ public class FrameCompetizione extends javax.swing.JFrame {
         btnGioca.setEnabled(false);
         btnGioca.addActionListener(this::btnGiocaActionPerformed);
 
+        btnRimuovi.setText("Rimuovi Atleta");
+        btnRimuovi.addActionListener(this::btnRimuoviActionPerformed);
+
+        cmbAtleti.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -115,7 +123,11 @@ public class FrameCompetizione extends javax.swing.JFrame {
                                 .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnConferma, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnRimuovi, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+                    .addComponent(cmbAtleti, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
                     .addComponent(btnGioca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -128,13 +140,15 @@ public class FrameCompetizione extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnGioca))
+                    .addComponent(btnGioca)
+                    .addComponent(btnRimuovi))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtNazionalita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblNazionalita))
+                            .addComponent(lblNazionalita)
+                            .addComponent(cmbAtleti, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblNumero)
@@ -142,12 +156,14 @@ public class FrameCompetizione extends javax.swing.JFrame {
                         .addGap(21, 21, 21)
                         .addComponent(btnConferma)
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE))
                     .addComponent(jScrollPane1))
                 .addGap(17, 17, 17))
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
+
+        pnlTitolo.setBackground(new java.awt.Color(0, 204, 204));
 
         lblTitolo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblTitolo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -163,11 +179,11 @@ public class FrameCompetizione extends javax.swing.JFrame {
         pnlTitoloLayout.setHorizontalGroup(
             pnlTitoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTitoloLayout.createSequentialGroup()
-                .addContainerGap(104, Short.MAX_VALUE)
+                .addContainerGap(207, Short.MAX_VALUE)
                 .addComponent(lblTitolo, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
+                .addGap(151, 151, 151)
                 .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
+                .addGap(17, 17, 17))
         );
         pnlTitoloLayout.setVerticalGroup(
             pnlTitoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -224,6 +240,8 @@ public class FrameCompetizione extends javax.swing.JFrame {
             atxAtleti.append(l.atletaToString() + "\n");
         }
         
+        cmbAtleti.addItem(nome);
+        
         btnGioca.setEnabled(true);
     }//GEN-LAST:event_btnConfermaActionPerformed
 
@@ -237,12 +255,25 @@ public class FrameCompetizione extends javax.swing.JFrame {
         apriFrameMeeting();
     }//GEN-LAST:event_btnMenuActionPerformed
 
+    private void btnRimuoviActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRimuoviActionPerformed
+        for (Atleta a: g.getAtleti()) {
+            if (cmbAtleti.getSelectedItem().equals(a.getNome())) {
+                cmbAtleti.removeItem(cmbAtleti.getSelectedItem());
+                g.rimuoviAtleta(a);
+                btnGioca.setEnabled(true);
+            }
+            break;
+        }
+    }//GEN-LAST:event_btnRimuoviActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea atxAtleti;
     private javax.swing.JTextArea atxGara;
     private javax.swing.JButton btnConferma;
     private javax.swing.JButton btnGioca;
     private javax.swing.JButton btnMenu;
+    private javax.swing.JButton btnRimuovi;
+    private javax.swing.JComboBox<String> cmbAtleti;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

@@ -36,26 +36,26 @@ public class FrameMeeting extends javax.swing.JFrame {
     
      private void caricaImmagini() {
         // Immagine 100 Metri
-        ImageIcon icon100M = new ImageIcon("img/100metri.png");
-        Image img100M = icon100M.getImage().getScaledInstance(400, 400, Image.SCALE_SMOOTH);
+        ImageIcon icon100M = new ImageIcon("img/100metri.jpg");
+        Image img100M = icon100M.getImage().getScaledInstance(350, 700, Image.SCALE_SMOOTH);
         lblImmagineCM.setIcon(new ImageIcon(img100M));
         lblImmagineCM.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         
         // Immagine Corsa a Ostacoli
-        ImageIcon iconCO = new ImageIcon("img/corsaostacoli.png");
-        Image imgCO = iconCO.getImage().getScaledInstance(400, 400, Image.SCALE_SMOOTH);
+        ImageIcon iconCO = new ImageIcon("img/corsaostacoli.jpg");
+        Image imgCO = iconCO.getImage().getScaledInstance(350, 700, Image.SCALE_SMOOTH);
         lblImmagineCO.setIcon(new ImageIcon(imgCO));
         lblImmagineCO.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         
         // Immagine Lancio Giavellotto
-        ImageIcon iconLG = new ImageIcon("img/giavellotto.png");
-        Image imgLG = iconLG.getImage().getScaledInstance(400, 400, Image.SCALE_SMOOTH);
+        ImageIcon iconLG = new ImageIcon("img/giavellotto.jpg");
+        Image imgLG = iconLG.getImage().getScaledInstance(350, 700, Image.SCALE_SMOOTH);
         lblImmagineLG.setIcon(new ImageIcon(imgLG));
         lblImmagineLG.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         
         // Immagine Lancio Martello
-        ImageIcon iconLM = new ImageIcon("img/martello.png");
-        Image imgLM = iconLM.getImage().getScaledInstance(400, 400, Image.SCALE_SMOOTH);
+        ImageIcon iconLM = new ImageIcon("img/martello.jpg");
+        Image imgLM = iconLM.getImage().getScaledInstance(350, 700, Image.SCALE_SMOOTH);
         lblImmagineLM.setIcon(new ImageIcon(imgLM));
         lblImmagineLM.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
     }
@@ -98,7 +98,10 @@ public class FrameMeeting extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Meeting Atletica Leggera");
+        setBackground(new java.awt.Color(0, 204, 204));
         getContentPane().setLayout(new java.awt.BorderLayout(10, 10));
+
+        jPanel3.setBackground(new java.awt.Color(0, 204, 204));
 
         lblTitolo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblTitolo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -137,10 +140,11 @@ public class FrameMeeting extends javax.swing.JFrame {
 
         getContentPane().add(jPanel3, java.awt.BorderLayout.PAGE_START);
 
+        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
-        lblCentoMetri.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        lblCentoMetri.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblCentoMetri.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblCentoMetri.setText("100 Metri");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -150,7 +154,7 @@ public class FrameMeeting extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(1, 6, 1, 6);
         jPanel1.add(lblCentoMetri, gridBagConstraints);
 
-        lblCorsaOstacoli.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        lblCorsaOstacoli.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblCorsaOstacoli.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblCorsaOstacoli.setText("Corsa a Ostacoli");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -160,7 +164,7 @@ public class FrameMeeting extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(1, 6, 1, 6);
         jPanel1.add(lblCorsaOstacoli, gridBagConstraints);
 
-        lblLancioGiavellotto.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        lblLancioGiavellotto.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblLancioGiavellotto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblLancioGiavellotto.setText("Lancio del Giavellotto");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -170,7 +174,7 @@ public class FrameMeeting extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(1, 6, 1, 6);
         jPanel1.add(lblLancioGiavellotto, gridBagConstraints);
 
-        lblLancioMartello.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        lblLancioMartello.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblLancioMartello.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblLancioMartello.setText("Lancio del Martello");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -224,9 +228,11 @@ public class FrameMeeting extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
+        jPanel2.setBackground(new java.awt.Color(0, 204, 204));
         jPanel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
         jPanel2.setLayout(new java.awt.GridLayout(1, 4, 10, 10));
 
+        btnCentoMetri.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnCentoMetri.setText("Gioca 100 Metri");
         btnCentoMetri.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -235,6 +241,7 @@ public class FrameMeeting extends javax.swing.JFrame {
         });
         jPanel2.add(btnCentoMetri);
 
+        btnCorsaOstacoli.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnCorsaOstacoli.setText("Gioca Corsa a Ostacoli");
         btnCorsaOstacoli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -243,6 +250,7 @@ public class FrameMeeting extends javax.swing.JFrame {
         });
         jPanel2.add(btnCorsaOstacoli);
 
+        btnLancioGiavellotto.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnLancioGiavellotto.setText("Gioca al lancio del giavellotto");
         btnLancioGiavellotto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -251,6 +259,7 @@ public class FrameMeeting extends javax.swing.JFrame {
         });
         jPanel2.add(btnLancioGiavellotto);
 
+        btnLancioMartello.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnLancioMartello.setText("Gioca al lancio del martello");
         btnLancioMartello.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
