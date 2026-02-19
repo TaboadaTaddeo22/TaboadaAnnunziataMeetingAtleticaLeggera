@@ -10,15 +10,22 @@ package taboadaannunziatameetingatleticaleggera;
 import java.util.*;
 
 /**
- *
+ * Classe LancioMartello
  * @author taboada.taddeo
  */
 public class LancioMartello extends Gara {
     
+    /**
+     * Metodo costruttore di LancioMartello
+     * @param nome nome dell'evento
+     */
     public LancioMartello(String nome) {
         super(nome);
     }
     
+    /**
+     * Metodo che assegna le performance agli atleti e che ordina le loro prestazioni
+     */
     @Override
     public void gioca() {
         Random r = new Random();
@@ -35,6 +42,10 @@ public class LancioMartello extends Gara {
         );
     }
     
+    /**
+     * Metodo che stampa il risultato dell'evento
+     * @return il risultato dell'evento con posizioni degli atleti
+     */
     @Override
     public String stampaRisultato() {
         return "=== Ecco il risultato della gara di lancio del martello === \n" + this.stampaGara();

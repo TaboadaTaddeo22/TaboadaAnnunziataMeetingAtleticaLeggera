@@ -6,15 +6,22 @@ package taboadaannunziatameetingatleticaleggera;
 import java.util.*;
 
 /**
- *
+ * Classe CorsaOstacoli
  * @author taboada.taddeo
  */
 public class CorsaOstacoli extends Gara {
     
+    /**
+     * Metodo costruttore di CorsaOstacoli
+     * @param nome nome dell'evento
+     */
     public CorsaOstacoli(String nome) {
         super(nome);
     }
     
+    /**
+     * Metodo che assegna le performance agli atleti e che ordina le loro prestazioni
+     */
     @Override
     public void gioca() {
         Random r = new Random();
@@ -31,6 +38,10 @@ public class CorsaOstacoli extends Gara {
         );
     }
     
+    /**
+     * Metodo che stampa il risultato dell'evento
+     * @return il risultato dell'evento con posizioni degli atleti
+     */
     @Override
     public String stampaRisultato() {
         return "=== Ecco il risultato della gara di 110 metri a ostacoli === \n" + this.stampaGara();

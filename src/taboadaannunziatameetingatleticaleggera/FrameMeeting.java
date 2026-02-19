@@ -9,17 +9,18 @@ import java.awt.Image;
 import javax.swing.JButton;
 
 /**
- *
+ * Frame "iniziale" del progetto
  * @author taboada.taddeo
  */
 public class FrameMeeting extends javax.swing.JFrame {
-    
+    // Attributi
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrameMeeting.class.getName());
     private String scelta;
     private Meeting m;
 
     /**
-     * Creates new form FrameMeeting
+     * Costruttore di FrameMeeting
+     * @param m il Meeting della frame
      */
     public FrameMeeting(Meeting m) {
         initComponents();
@@ -27,6 +28,9 @@ public class FrameMeeting extends javax.swing.JFrame {
         this.m = m;
     }
     
+    /**
+     * Metodo che apre FrameCompetizione
+     */
     public void apriFrameCompetizione() {
         FrameCompetizione fC = new FrameCompetizione(this, m, scelta);
         this.setVisible(false);
@@ -34,6 +38,9 @@ public class FrameMeeting extends javax.swing.JFrame {
         fC.setVisible(true);
     }
     
+    /**
+     * Metodo per impostare le immagini
+     */
      private void caricaImmagini() {
         // Immagine 100 Metri
         ImageIcon icon100M = new ImageIcon("img/100metri.jpg");
@@ -60,12 +67,12 @@ public class FrameMeeting extends javax.swing.JFrame {
         lblImmagineLM.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
     }
 
+     /**
+      * Metodo get di btnRisultati
+      * @return btnRisultati
+      */
     public JButton getBtnRisultati() {
         return btnRisultati;
-    }
-
-    public void setM(Meeting m) {
-        this.m = m;
     }
     
     /**
@@ -273,6 +280,8 @@ public class FrameMeeting extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Metodi che aprono FrameCompetizione in base all'evento scelto
+    
     private void btnCentoMetriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCentoMetriActionPerformed
         scelta = "CentoMetri";
         apriFrameCompetizione();
@@ -293,6 +302,10 @@ public class FrameMeeting extends javax.swing.JFrame {
         apriFrameCompetizione();
     }//GEN-LAST:event_btnLancioMartelloActionPerformed
 
+    /**
+     * Metodo che apre la JDialog Risultati
+     * @param evt click del bottone btnRisultati
+     */
     private void btnRisultatiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRisultatiActionPerformed
         Risultati r = new Risultati(this, true);
         r.setBounds(0, 0, this.getWidth() / 2, this.getHeight() / 2);

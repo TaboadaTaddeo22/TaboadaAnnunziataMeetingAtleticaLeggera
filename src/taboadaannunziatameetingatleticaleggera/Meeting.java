@@ -7,7 +7,7 @@ package taboadaannunziatameetingatleticaleggera;
 import java.util.ArrayList;
 
 /**
- *
+ * Classe Meeting
  * @author taboada.taddeo
  */
 public class Meeting {
@@ -15,15 +15,15 @@ public class Meeting {
     private ArrayList<Gara> eventi;
 
     /**
-     * 
+     * Costruttore di Meeting
      */
     public Meeting() {
         this.eventi = new ArrayList<>();
     }
     
     /**
-     * 
-     * @param g 
+     * Metodo che aggiunge una gara al meeting
+     * @param g gara da aggiungere
      */
     public void aggiungiGara(Gara g) {
         for (Gara gara: eventi) {
@@ -34,8 +34,8 @@ public class Meeting {
     }
     
     /**
-     * 
-     * @param g 
+     * Metodo che rimuove una gara al meeting
+     * @param g gara da rimuovere
      */
     public void rimuoviGara(Gara g) {
         for (Gara gara: eventi) {
@@ -47,8 +47,8 @@ public class Meeting {
     }
 
     /**
-     * 
-     * @return 
+     * Metodo get di eventi
+     * @return eventi
      */
     public ArrayList<Gara> getEventi() {
         return eventi;

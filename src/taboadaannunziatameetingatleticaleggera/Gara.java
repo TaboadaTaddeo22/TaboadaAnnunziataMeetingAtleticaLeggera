@@ -7,7 +7,7 @@ package taboadaannunziatameetingatleticaleggera;
 import java.util.ArrayList;
 
 /**
- *
+ * Classe Gara
  * @author taboada.taddeo
  */
 public abstract class Gara {
@@ -15,11 +15,19 @@ public abstract class Gara {
     protected ArrayList<Atleta> atleti;
     protected String nome;
 
+    /**
+     * Costruttore di Gara
+     * @param nome della gara
+     */
     public Gara(String nome) {
         this.atleti = new ArrayList<>();
         this.nome = nome;
     }
     
+    /**
+     * Metodo che aggiunge un atleta alla gara
+     * @param a atleta da aggiungere
+     */
     public void aggiungiAtleta(Atleta a) {
         for (Atleta atleta: atleti) {
             if (a.equals(atleta) || a.getClass() != atleta.getClass())
@@ -28,6 +36,10 @@ public abstract class Gara {
         atleti.add(a);
     }
     
+    /**
+     * Metodo che rimuove un atleta alla gara
+     * @param a atleta da rimuovere
+     */
     public void rimuoviAtleta(Atleta a) {
         for (Atleta atleta: atleti) {
             if (a.equals(atleta)) {
@@ -37,18 +49,37 @@ public abstract class Gara {
         }
     }
     
+    /**
+     * Metodo che assegna le performance agli atleti e che ordina le loro prestazioni
+     */
     public abstract void gioca();
     
+    /**
+     * Metodo che stampa il risultato dell'evento
+     * @return il risultato dell'evento con posizioni degli atleti
+     */
     public abstract String stampaRisultato();
 
+    /**
+     * Metodo get di nome
+     * @return nome
+     */
     public String getNome() {
         return nome;
     }
 
+    /**
+     * Metodo get di atleti
+     * @return atleti
+     */
     public ArrayList<Atleta> getAtleti() {
         return atleti;
     }
 
+    /**
+     * Metodo che stampa il risultato della Gara con posizioni in classifica
+     * @return risultato
+     */
     public StringBuilder stampaGara() {
         StringBuilder risultato = new StringBuilder();
         int i = 1;

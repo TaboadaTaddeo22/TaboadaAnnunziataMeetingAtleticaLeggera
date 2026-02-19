@@ -13,9 +13,9 @@ public class Risultati extends javax.swing.JDialog {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Risultati.class.getName());
 
     /**
-     * Creates new form Risultati
-     * @param parent
-     * @param modal
+     * Costruttore di FrameCompetizione
+     * @param parent frame da cui parte il JDialog, in questo caso FrameMeeting
+     * @param modal booleano che se true, richiede una risposta dall'utente prima di interagire con il resto della frame, altrimenti false
      */
     public Risultati(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -60,6 +60,10 @@ public class Risultati extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Metodo che stampa i risultati delle gare
+     * @param m il meeting da cui vengono prese le gare
+     */
     public void stampaRisultati(Meeting m) {
         atxRisultati.setText("");
         atxRisultati.append("=== Ecco i risultati delle gare === \n");
@@ -68,6 +72,10 @@ public class Risultati extends javax.swing.JDialog {
         }
     }
     
+    /**
+     * Metodo che chiude la JDialog
+     * @param evt click del bottone btnOk
+     */
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
         dispose();
     }//GEN-LAST:event_btnOkActionPerformed

@@ -7,15 +7,22 @@ package taboadaannunziatameetingatleticaleggera;
 import java.util.*;
 
 /**
- *
+ * Classe CentoMetri
  * @author taboada.taddeo
  */
 public class CentoMetri extends Gara {
 
+    /**
+     * Metodo costruttore di CentoMetri
+     * @param nome nome dell'evento
+     */
     public CentoMetri(String nome) {
         super(nome);
     }
     
+    /**
+     * Metodo che assegna le performance agli atleti e che ordina le loro prestazioni
+     */
     @Override
     public void gioca() {
         Random r = new Random();
@@ -32,6 +39,10 @@ public class CentoMetri extends Gara {
         );
     }
     
+    /**
+     * Metodo che stampa il risultato dell'evento
+     * @return il risultato dell'evento con posizioni degli atleti
+     */
     @Override
     public String stampaRisultato() {
         return "=== Ecco il risultato della gara di 100 metri piani === \n" + this.stampaGara();

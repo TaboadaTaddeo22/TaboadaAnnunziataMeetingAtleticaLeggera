@@ -7,7 +7,7 @@ package taboadaannunziatameetingatleticaleggera;
 import javax.swing.JFrame;
 
 /**
- *
+ * Classe Main del programma
  * @author taboada.taddeo
  */
 public class TaboadaAnnunziataMeetingAtleticaLeggera {
@@ -16,6 +16,7 @@ public class TaboadaAnnunziataMeetingAtleticaLeggera {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        // Creazione del meeting e della frame
         Meeting m = new Meeting();
         FrameMeeting fM = new FrameMeeting(m);
         fM.setVisible(true);

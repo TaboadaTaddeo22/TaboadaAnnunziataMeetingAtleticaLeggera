@@ -7,8 +7,8 @@ package taboadaannunziatameetingatleticaleggera;
 import javax.swing.JFrame;
 
 /**
- *
- * @author utente
+ * Frame legata ad una gara scelta dall'utente
+ * @author taboada.taddeo
  */
 public class FrameCompetizione extends javax.swing.JFrame {
     
@@ -19,8 +19,8 @@ public class FrameCompetizione extends javax.swing.JFrame {
     private String scelta = "";
     
     /**
-     * Creates new form FrameCompetizione
-     * @param scelta
+     * Costruttore di FrameCompetizione
+     * @param scelta il tipo di gara scelto dall'utente
      */
     public FrameCompetizione(FrameMeeting frameMeeting, Meeting m, String scelta) {
         initComponents();
@@ -30,6 +30,9 @@ public class FrameCompetizione extends javax.swing.JFrame {
         trovaScelta();
     }
 
+    /**
+     * Metodo che apre FrameMeeting
+     */
     public void apriFrameMeeting() {
         this.setVisible(false);
         frameMeeting.setVisible(true);
@@ -200,6 +203,9 @@ public class FrameCompetizione extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Metodo che crea una gara basata sulla scelta dell'utente in FrameMeeting
+     */
     private void trovaScelta() {
         switch (scelta) {
             case "CentoMetri":
@@ -220,15 +226,15 @@ public class FrameCompetizione extends javax.swing.JFrame {
         m.aggiungiGara(g);
         lblTitolo.setText(g.getNome());
     }
-
-    public Meeting getM() {
-        return m;
-    }
     
+    /**
+     * Metodo che crea un nuovo atleta
+     * @param evt click del bottone btnConferma
+     */
     private void btnConfermaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfermaActionPerformed
         String nome = txtNome.getText();
         String nazionalita = txtNazionalita.getText();
-        String numero = txtNumero.getText();
+        int numero = Integer.parseInt(txtNumero.getText());
         
         if (scelta.equals("CentoMetri") || scelta.equals("CorsaOstacoli")) {
             Velocista v = new Velocista(nome, nazionalita, numero);
@@ -245,16 +251,28 @@ public class FrameCompetizione extends javax.swing.JFrame {
         btnGioca.setEnabled(true);
     }//GEN-LAST:event_btnConfermaActionPerformed
 
+    /**
+     * Metodo che simula la gara
+     * @param evt click del bottone btnGioca
+     */
     private void btnGiocaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGiocaActionPerformed
         btnGioca.setEnabled(false);
         g.gioca();
         atxGara.setText(g.stampaRisultato());
     }//GEN-LAST:event_btnGiocaActionPerformed
 
+    /**
+     * Metodo che torna al menu riaprendo FrameMeeting
+     * @param evt click del bottone btnMenu
+     */
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
         apriFrameMeeting();
     }//GEN-LAST:event_btnMenuActionPerformed
 
+    /**
+     * Metodo che rimuove un atleta inserito
+     * @param evt click del bottone btnRimuovi
+     */
     private void btnRimuoviActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRimuoviActionPerformed
         for (Atleta a: g.getAtleti()) {
             if (cmbAtleti.getSelectedItem().equals(a.getNome())) {
