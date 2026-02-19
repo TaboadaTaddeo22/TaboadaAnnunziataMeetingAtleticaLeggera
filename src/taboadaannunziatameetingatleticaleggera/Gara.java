@@ -28,12 +28,13 @@ public abstract class Gara {
      * Metodo che aggiunge un atleta alla gara
      * @param a atleta da aggiungere
      */
-    public void aggiungiAtleta(Atleta a) {
+    public boolean aggiungiAtleta(Atleta a) {
         for (Atleta atleta: atleti) {
-            if (a.equals(atleta) || a.getClass() != atleta.getClass())
-                return;
+            if (a.equals(atleta))
+                return false;
         }
         atleti.add(a);
+        return true;
     }
     
     /**
@@ -41,12 +42,7 @@ public abstract class Gara {
      * @param a atleta da rimuovere
      */
     public void rimuoviAtleta(Atleta a) {
-        for (Atleta atleta: atleti) {
-            if (a.equals(atleta)) {
-                atleti.remove(a);
-                return;
-            }
-        }
+        atleti.remove(a);
     }
     
     /**

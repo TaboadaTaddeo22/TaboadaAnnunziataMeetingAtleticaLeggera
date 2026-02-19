@@ -5,6 +5,7 @@
 package taboadaannunziatameetingatleticaleggera;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  * Frame legata ad una gara scelta dall'utente
@@ -102,6 +103,7 @@ public class FrameCompetizione extends javax.swing.JFrame {
         btnGioca.addActionListener(this::btnGiocaActionPerformed);
 
         btnRimuovi.setText("Rimuovi Atleta");
+        btnRimuovi.setEnabled(false);
         btnRimuovi.addActionListener(this::btnRimuoviActionPerformed);
 
         cmbAtleti.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -238,16 +240,25 @@ public class FrameCompetizione extends javax.swing.JFrame {
         
         if (scelta.equals("CentoMetri") || scelta.equals("CorsaOstacoli")) {
             Velocista v = new Velocista(nome, nazionalita, numero);
-            g.getAtleti().add(v);
-            atxAtleti.append(v.atletaToString() + "\n");
+            if (g.aggiungiAtleta(v)) {
+                atxAtleti.append(v.atletaToString() + "\n");
+                cmbAtleti.addItem(nome);
+            }
+            else {
+                JOptionPane.showMessageDialog(this, "Un velocista non può avere lo stesso numero di un altro", "Input Invalido", 2);
+            } 
         } else if (scelta.equals("LancioGiavellotto") || scelta.equals("LancioMartello")) {
             Lanciatore l = new Lanciatore(nome, nazionalita, numero);
-            g.getAtleti().add(l);
-            atxAtleti.append(l.atletaToString() + "\n");
+            if (g.aggiungiAtleta(l)) {
+                atxAtleti.append(l.atletaToString() + "\n");
+                cmbAtleti.addItem(nome);
+            }
+            else {
+                JOptionPane.showMessageDialog(this, "Un lanciatore non può avere lo stesso numero di un altro", "Input Invalido", 2);
+            }
         }
         
-        cmbAtleti.addItem(nome);
-        
+        btnRimuovi.setEnabled(true);
         btnGioca.setEnabled(true);
     }//GEN-LAST:event_btnConfermaActionPerformed
 
@@ -274,13 +285,22 @@ public class FrameCompetizione extends javax.swing.JFrame {
      * @param evt click del bottone btnRimuovi
      */
     private void btnRimuoviActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRimuoviActionPerformed
-        for (Atleta a: g.getAtleti()) {
-            if (cmbAtleti.getSelectedItem().equals(a.getNome())) {
-                cmbAtleti.removeItem(cmbAtleti.getSelectedItem());
+        String selezionato = (String) cmbAtleti.getSelectedItem();
+        for (Atleta a : g.getAtleti()) {
+            if (a.getNome().equals(selezionato)) {
+                cmbAtleti.removeItem(selezionato);
                 g.rimuoviAtleta(a);
                 btnGioca.setEnabled(true);
+                break;
             }
-            break;
+        }
+        
+        atxAtleti.setText("");
+        for (Atleta a: g.getAtleti()) {
+            if (a instanceof Velocista v)
+                atxAtleti.append(v.atletaToString() + "\n");
+            if (a instanceof Lanciatore l)
+                atxAtleti.append(l.atletaToString() + "\n");
         }
     }//GEN-LAST:event_btnRimuoviActionPerformed
 

@@ -81,11 +81,11 @@ public abstract class Atleta {
     public void setNumero(int numero) {
         this.numero = numero;
     }
-    
+
     /**
-     * 
-     * @param obj
-     * @return 
+     * Override del metodo equals
+     * @param obj l'atleta da confrontare
+     * @return true se gli atleti hanno lo stesso numero false altrimenti
      */
     @Override
     public boolean equals(Object obj) {
@@ -99,11 +99,10 @@ public abstract class Atleta {
             return false;
         }
         final Atleta other = (Atleta) obj;
-        if (!Objects.equals(this.nome, other.nome)) {
-            return false;
-        }
-        return Objects.equals(this.nazionalita, other.nazionalita);
+        return this.numero == other.numero;
     }
+    
+    
 
     /**
      * Override del metodo toString()
